@@ -1,0 +1,21 @@
+
+<div class="form-group" >
+    <label for="username">Username :</label>
+    <input #txtUsernameOrEmail formControlName="username" 
+        type="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Name surname & Email">
+    <small>We'll never share your name and surname with anyone else.</small>
+</div>
+
+<div class="form-group">
+    <label for="password">Password</label>
+    <input #txtPassword type="password" 
+        class="form-control" id="password"
+        placeholder="Password">
+        <p>
+</div>
+<p></p>
+
+<asl-google-signin-button style="border:2rem ; width: 40px;"></asl-google-signin-button>
+<button style="margin: auto;" type="submit" class="btn btn-primary" 
+    (click)="login(txtUsernameOrEmail.value,txtPassword.value)">Sign in</button>
+    

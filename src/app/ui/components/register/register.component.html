@@ -1,0 +1,43 @@
+    <!-- [] is for dynamic parametr  -->
+    <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
+        <div class="form-group" >
+            <label for="nameSurname">Name and surname</label>
+            <input formControlName="nameSurname" 
+            [ngClass]="{'is-invalid': component.nameSurname.errors}" type="email" class="form-control" id="nameSurname" aria-describedby="emailHelp" placeholder="Name surname">
+                    <small class="form-text text-muted" *ngIf="submitted && component.nameSurname.errors?.required">We'll never share your name and surname with anyone else.</small>
+        </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input   [ngClass]="{'is-invalid': component.username.errors}" formControlName="username" type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="User name">
+                <small id="emailHelp" class="form-text text-muted" *ngIf="submitted && component.username.errors?.required">We'll never share your user name with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input [ngClass]="{'is-invalid': component.email.errors}" formControlName="email" type="email" class="form-control" id="email" placeholder="Email">
+                <small *ngIf="submitted && component.email.errors?.required">We'll never share your email with anyone else.</small>
+                <small *ngIf="submitted && component.email.errors?.email">Please enter the email address</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input formControlName="password" type="password" 
+                [ngClass]="{'is-invalid': component.password.errors}"
+                class="form-control" id="password"
+                 placeholder="Password">
+                <p>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmThePassword">Confirm the password</label>
+                <input formControlName="confirmPassword" type="password"
+                 class="form-control" id="confirmThePassword"
+                 [ngClass]="{'is-invalid': component.confirmPassword.errors}"
+                 placeholder="Confirm the password">
+                 <small *ngIf="submitted && frm.hasError('notSame')">It is not the same password!</small>
+
+            </div>
+            <p></p>
+            <button type="submit" class="btn btn-primary">Register</button>
+    </form>
